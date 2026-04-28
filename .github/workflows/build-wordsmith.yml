@@ -24,6 +24,6 @@ jobs:
           docker tag wordsmith-db:latest ${{ secrets.DOCKER_USERNAME }}/db:latest
       - name: Push all images to Docker Hub
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/web:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/words:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/db:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/wordsmith:web
+          docker push ${{ secrets.DOCKER_USERNAME }}/wordsmith:words
+          docker push ${{ secrets.DOCKER_USERNAME }}/wordsmith:db
