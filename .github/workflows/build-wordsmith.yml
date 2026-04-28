@@ -10,6 +10,8 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y docker-compose
       - name: Build and launch Wordsmith instances
         run: sh ./launchInstances.sh 1
+      - name: List all docker images
+        run: docker images
       - name: Login to dockerhub
         uses: docker/login-action@v2
         with:
