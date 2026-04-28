@@ -9,7 +9,7 @@ jobs:
       - name: Install docker-compose
         run: sudo apt-get update && sudo apt-get install -y docker-compose
       - name: Build and launch Wordsmith instances
-        run: sh ./launchInstances.sh 1
+        run: docker compose build
       - name: List all docker images
         run: docker images
       - name: Login to dockerhub
