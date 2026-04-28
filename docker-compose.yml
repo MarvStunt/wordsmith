@@ -1,0 +1,20 @@
+services:
+    db:
+        build: ./db
+        container_name: db_${INSTANCE_NAME}
+    
+    web:
+        build: ./web
+        ports:
+          - "${WEB_PORT}:80"
+        container_name: web_${INSTANCE_NAME}
+        depends_on:
+          - words
+        volumes:
+          - ./web/static:/app/static
+
+    words:
+        build: ./words
+        container_name: words_${INSTANCE_NAME}
+        depends_on:
+          - db
