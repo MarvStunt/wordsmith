@@ -1,10 +1,10 @@
 services:
     db:
-        build: ./db
+        image: marvstunt/wordsmith:db
         container_name: db
     
     web:
-        build: ./web
+        image: marvstunt/wordsmith:web
         ports:
           - "8080:80"
         container_name: web
@@ -14,7 +14,7 @@ services:
           - ./web/static:/app/static
 
     words:
-        build: ./words
+        image: marvstunt/wordsmith:words
         container_name: words
         depends_on:
           - db
