@@ -1,13 +1,13 @@
 services:
     db:
         build: ./db
-        container_name: db_${INSTANCE_NAME}
+        container_name: db
     
     web:
         build: ./web
         ports:
-          - "${WEB_PORT}:80"
-        container_name: web_${INSTANCE_NAME}
+          - "8080:80"
+        container_name: web
         depends_on:
           - words
         volumes:
@@ -15,6 +15,6 @@ services:
 
     words:
         build: ./words
-        container_name: words_${INSTANCE_NAME}
+        container_name: words
         depends_on:
           - db

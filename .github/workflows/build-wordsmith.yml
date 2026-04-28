@@ -19,13 +19,11 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Tag all images
         run: |
-          INSTANCE_NAME="instance1"
-          docker tag web_$INSTANCE_NAME:latest ${{ secrets.DOCKER_USERNAME }}/web_$INSTANCE_NAME:latest
-          docker tag words_$INSTANCE_NAME:latest ${{ secrets.DOCKER_USERNAME }}/words_$INSTANCE_NAME:latest
-          docker tag db_$INSTANCE_NAME:latest ${{ secrets.DOCKER_USERNAME }}/db_$INSTANCE_NAME:latest
+          docker tag web:latest ${{ secrets.DOCKER_USERNAME }}/web:latest
+          docker tag words:latest ${{ secrets.DOCKER_USERNAME }}/words:latest
+          docker tag db:latest ${{ secrets.DOCKER_USERNAME }}/db:latest
       - name: Push all images to Docker Hub
         run: |
-          INSTANCE_NAME="instance1"
-          docker push ${{ secrets.DOCKER_USERNAME }}/web_$INSTANCE_NAME:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/words_$INSTANCE_NAME:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/db_$INSTANCE_NAME:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/web:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/words:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/db:latest
