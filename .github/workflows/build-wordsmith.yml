@@ -1,0 +1,9 @@
+name: GitHub Actions Wordsmith
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v6
+      - run: docker-compose build
