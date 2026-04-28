@@ -19,9 +19,9 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Tag all images
         run: |
-          docker tag wordsmith-web:latest ${{ secrets.DOCKER_USERNAME }}/web
-          docker tag wordsmith-words:latest ${{ secrets.DOCKER_USERNAME }}/words
-          docker tag wordsmith-db:latest ${{ secrets.DOCKER_USERNAME }}/db
+          docker tag wordsmith-web:web ${{ secrets.DOCKER_USERNAME }}/web
+          docker tag wordsmith-words:words ${{ secrets.DOCKER_USERNAME }}/words
+          docker tag wordsmith-db:db ${{ secrets.DOCKER_USERNAME }}/db
       - name: Push all images to Docker Hub
         run: |
           docker push ${{ secrets.DOCKER_USERNAME }}/wordsmith:web
